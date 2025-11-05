@@ -14,3 +14,22 @@ document.querySelectorAll('.menu a').forEach(link => {
     menu.classList.remove('active');
   });
 });
+
+// ===============================
+// EFEITO DE ENTRADA SUAVE AO ROLAR
+// ===============================
+const sections = document.querySelectorAll('.fade-section');
+
+function aparecerAoRolar() {
+  const triggerBottom = window.innerHeight * 0.8;
+
+  sections.forEach(section => {
+    const boxTop = section.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      section.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', aparecerAoRolar);
+aparecerAoRolar(); // Chama uma vez ao carregar
